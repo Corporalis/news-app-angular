@@ -1,0 +1,51 @@
+<a 
+  [href]="article.url" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="block bg-bbc-card border border-bbc-border hover:bg-bbc-hover transition-all duration-200 group overflow-hidden"
+>
+  <!-- Image Section -->
+  @if (article.urlToImage) {
+    <div class="aspect-video overflow-hidden bg-bbc-bg">
+      <img 
+        [src]="article.urlToImage" 
+        [alt]="article.title"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+    </div>
+  }
+
+  <!-- Content Section -->
+  <div class="p-4">
+    <!-- Source and Time -->
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-xs font-medium text-bbc-red uppercase">
+        {{ article.source.name }}
+      </span>
+      <span class="text-xs text-bbc-text-secondary">
+        {{ getTimeAgo(article.publishedAt) }}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-lg font-semibold text-bbc-text group-hover:text-white mb-2 line-clamp-3">
+      {{ article.title }}
+    </h3>
+
+    <!-- Description -->
+    @if (article.description) {
+      <p class="text-sm text-bbc-text-secondary line-clamp-2 mb-2">
+        {{ article.description }}
+      </p>
+    }
+
+    <!-- Author -->
+    @if (article.author) {
+      <p class="text-xs text-bbc-text-secondary mt-2">
+        By {{ article.author }}
+      </p>
+    }
+  </div>
+</a>

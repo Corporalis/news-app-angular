@@ -1,0 +1,62 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║        🎉 BBC NEWS APP - ANGULAR 18 + NGRX + TAILWIND       ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+📍 Location: c:\source\bbc-news-app
+
+⚡ QUICK START (3 steps):
+
+  1️⃣  Get API Key
+      → Go to: https://newsapi.org
+      → Sign up (free)
+      → Copy your API key
+
+  2️⃣  Configure API Key
+      → Edit: src/environments/environment.ts
+      → Replace: YOUR_NEWS_API_KEY_HERE
+      → With: your-actual-api-key
+
+  3️⃣  Start App
+      → Run: npm start
+      → Open: http://localhost:4200
+
+✨ FEATURES:
+   • BBC-style dark theme
+   • 7 news categories
+   • NGRX state management
+   • Real-time news from NewsAPI
+   • Responsive design
+   • Tailwind CSS v3
+
+📚 DOCUMENTATION:
+   • README.md          - Full documentation
+   • GETTING_STARTED.md - Step-by-step guide
+   • QUICKSTART.md      - Quick reference
+   • FEATURES.md        - Complete feature list
+
+🛠️  COMMANDS:
+   npm start            - Start dev server
+   npm run build        - Production build
+
+💡 TIPS:
+   • Free API tier: 100 requests/day
+   • Install Redux DevTools to see NGRX in action
+   • Some images may not load (CORS restrictions)
+
+🎨 CUSTOMIZATION:
+   • Colors: tailwind.config.js
+   • Categories: src/app/components/header/header.component.ts
+   • Layouts: Component HTML files
+
+📦 TECH STACK:
+   ✓ Angular 18 (standalone components)
+   ✓ NGRX (Store, Effects, Selectors)
+   ✓ Tailwind CSS v3
+   ✓ TypeScript
+   ✓ RxJS
+
+🚀 Ready to go! Just add your API key and run npm start
+
+═══════════════════════════════════════════════════════════════

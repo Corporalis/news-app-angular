@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BBC Dark Theme Global Styles */
+body {
+  @apply bg-bbc-bg text-bbc-text font-bbc;
+  margin: 0;
+  padding: 0;
+}
