@@ -1,52 +1,50 @@
 <div class="container mx-auto px-4 py-8">
   <!-- Loading State -->
-  @if (loading$ | async) {
-    <div class="flex items-center justify-center min-h-[400px]">
-      <div class="text-center">
-        <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-bbc-red border-t-transparent"></div>
-        <p class="mt-4 text-bbc-text-secondary">Loading news...</p>
-      </div>
+  @if (loading) {
+  <div class="flex items-center justify-center min-h-[400px]">
+    <div class="text-center">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-bbc-red border-t-transparent"></div>
+      <p class="mt-4 text-bbc-text-secondary">Loading news...</p>
     </div>
+  </div>
   }
 
   <!-- Error State -->
-  @if (error$ | async; as error) {
-    <div class="bg-red-900/20 border border-red-900 rounded p-4 max-w-2xl mx-auto">
-      <h3 class="text-red-500 font-semibold mb-2">Error Loading News</h3>
-      <p class="text-bbc-text-secondary">{{ error }}</p>
-      <p class="text-bbc-text-secondary text-sm mt-2">
-        Please check your API key in the environment configuration.
-      </p>
-    </div>
+  @if (error) {
+  <div class="bg-red-900/20 border border-red-900 rounded p-4 max-w-2xl mx-auto">
+    <h3 class="text-red-500 font-semibold mb-2">Error Loading News</h3>
+    <p class="text-bbc-text-secondary">{{ error }}</p>
+    <p class="text-bbc-text-secondary text-sm mt-2">
+      Please check your API key in the environment configuration.
+    </p>
+  </div>
   }
 
   <!-- News Grid -->
-  @if (!(loading$ | async)) {
-    @if ((articles$ | async); as articles) {
-      @if (articles.length > 0) {
-        <!-- Category Title -->
-        <h2 class="text-3xl font-bold text-bbc-text mb-6 capitalize">
-          {{ (selectedCategory$ | async) }} News
-        </h2>
+  @if (!loading) {
+  @if (articles && articles.length > 0) {
+  <!-- Category Title -->
+  <h2 class="text-3xl font-bold text-bbc-text mb-6 capitalize">
+    {{ selectedCategory }} News
+  </h2>
 
-        <!-- Featured Article (First Article - Large) -->
-        @if (articles[0]) {
-          <div class="mb-8">
-            <app-news-card [article]="articles[0]" class="block"></app-news-card>
-          </div>
-        }
+  <!-- Featured Article (First Article - Large) -->
+  @if (articles[0]) {
+  <div class="mb-8">
+    <app-news-card [article]="articles[0]" class="block"></app-news-card>
+  </div>
+  }
 
-        <!-- Grid of Articles -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          @for (article of articles.slice(1); track article.url) {
-            <app-news-card [article]="article"></app-news-card>
-          }
-        </div>
-      } @else {
-        <div class="text-center py-12">
-          <p class="text-bbc-text-secondary text-lg">No articles found.</p>
-        </div>
-      }
+  <!-- Grid of Articles -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (article of articles.slice(1); track article.url) {
+    <app-news-card [article]="article"></app-news-card>
     }
+  </div>
+  } @else {
+  <div class="text-center py-12">
+    <p class="text-bbc-text-secondary text-lg">No articles found.</p>
+  </div>
+  }
   }
 </div>

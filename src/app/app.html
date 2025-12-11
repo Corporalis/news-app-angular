@@ -1,8 +1,7 @@
 <div class="min-h-screen bg-bbc-bg flex flex-col">
-  <app-header></app-header>
+  <app-header-container></app-header-container>
   <main class="flex-grow">
-    <app-news-list></app-news-list>
+    <router-outlet />
   </main>
   <app-footer></app-footer>
-  <router-outlet />
 </div>
