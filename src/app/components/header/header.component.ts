@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NewsCategory } from '../../models/news.model';
-import { changeCategory } from '../../store/news.actions';
-import { selectSelectedCategory } from '../../store/news.selectors';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  selectedCategory$;
+  @Input() selectedCategory: string | null = 'general';
+  @Output() categoryChange = new EventEmitter<string>();
 
   categories: NewsCategory[] = [
-    { id: '1', name: 'General', value: 'general' },
+    { id: '1', name: 'General', value: '' },
     { id: '2', name: 'Business', value: 'business' },
     { id: '3', name: 'Technology', value: 'technology' },
     { id: '4', name: 'Science', value: 'science' },
@@ -25,11 +24,7 @@ export class HeaderComponent {
     { id: '7', name: 'Health', value: 'health' }
   ];
 
-  constructor(private store: Store) {
-    this.selectedCategory$ = this.store.select(selectSelectedCategory);
-  }
-
   onCategoryChange(category: string): void {
-    this.store.dispatch(changeCategory({ category }));
+    this.categoryChange.emit(category);
   }
 }

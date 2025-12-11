@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { NewsListComponent } from './components/news-list/news-list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeaderContainerComponent } from './components/header-container/header-container.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NewsListComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderContainerComponent, FooterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {}

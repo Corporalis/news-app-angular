@@ -4,9 +4,8 @@
     <div class="flex items-center justify-between py-4">
       <div class="flex items-center space-x-2">
         <div class="bg-bbc-red px-4 py-1">
-          <h1 class="text-2xl font-bold text-white tracking-tight">BBC</h1>
+          <h1 class="text-2xl font-bold text-white tracking-tight">NEWSDIT</h1>
         </div>
-        <span class="text-bbc-text text-lg">News</span>
       </div>
     </div>
 
@@ -15,15 +14,14 @@
       <ul class="flex space-x-0 overflow-x-auto scrollbar-hide">
         @for (category of categories; track category.id) {
           <li>
-            <button
-              (click)="onCategoryChange(category.value)"
-              [class.bg-bbc-hover]="(selectedCategory$ | async) === category.value"
-              [class.border-b-2]="(selectedCategory$ | async) === category.value"
-              [class.border-bbc-red]="(selectedCategory$ | async) === category.value"
-              class="px-4 py-3 text-sm font-medium text-bbc-text hover:bg-bbc-hover hover:text-white transition-colors whitespace-nowrap"
+            <a
+              [routerLink]="category.value ? ['/', category.value] : ['/']"
+              routerLinkActive="bg-bbc-hover border-b-2 border-bbc-red"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="block px-4 py-3 text-sm font-medium text-bbc-text hover:bg-bbc-hover hover:text-white transition-colors whitespace-nowrap cursor-pointer"
             >
               {{ category.name }}
-            </button>
+            </a>
           </li>
         }
       </ul>
