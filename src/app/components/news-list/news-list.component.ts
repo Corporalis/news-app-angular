@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { NewsArticle } from '../../models/news.model';
 import { NewsCardComponent } from '../news-card/news-card.component';
 
@@ -8,7 +8,7 @@ import { NewsCardComponent } from '../news-card/news-card.component';
   standalone: true,
   imports: [CommonModule, NewsCardComponent],
   templateUrl: './news-list.component.html',
-  styleUrl: './news-list.component.css'
+  styleUrl: './news-list.component.css',
 })
 export class NewsListComponent {
   @Input() articles: NewsArticle[] | null = null;

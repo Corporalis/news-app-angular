@@ -13,16 +13,13 @@
     <nav class="border-t border-bbc-border">
       <ul class="flex space-x-0 overflow-x-auto scrollbar-hide">
         @for (category of categories; track category.id) {
-          <li>
-            <a
-              [routerLink]="category.value ? ['/', category.value] : ['/']"
-              routerLinkActive="bg-bbc-hover border-b-2 border-bbc-red"
-              [routerLinkActiveOptions]="{ exact: true }"
-              class="block px-4 py-3 text-sm font-medium text-bbc-text hover:bg-bbc-hover hover:text-white transition-colors whitespace-nowrap cursor-pointer"
-            >
-              {{ category.name }}
-            </a>
-          </li>
+        <li>
+          <a [routerLink]="category.value ? ['/', category.value] : ['/']"
+            routerLinkActive="bg-bbc-hover border-b-2 border-bbc-red" [routerLinkActiveOptions]="{ exact: true }"
+            class="block px-4 py-3 text-sm font-medium text-bbc-text hover:bg-bbc-hover hover:text-white transition-colors whitespace-nowrap cursor-pointer">
+            {{ category.name }}
+          </a>
+        </li>
         }
       </ul>
     </nav>

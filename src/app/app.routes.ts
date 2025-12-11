@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'science', component: NewsListContainerComponent },
   { path: 'sports', component: NewsListContainerComponent },
   { path: 'technology', component: NewsListContainerComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];

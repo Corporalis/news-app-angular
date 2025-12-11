@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { HeaderComponent } from '../header/header.component';
 import { changeCategory } from '../../store/news.actions';
 import { selectSelectedCategory } from '../../store/news.selectors';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-header-container',
@@ -15,7 +15,7 @@ import { selectSelectedCategory } from '../../store/news.selectors';
       [selectedCategory]="selectedCategory$ | async"
       (categoryChange)="onCategoryChange($event)"
     ></app-header>
-  `
+  `,
 })
 export class HeaderContainerComponent {
   selectedCategory$;
