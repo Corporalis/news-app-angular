@@ -1,9 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { NewsArticle } from '../models/news.model';
+import { NewsArticle, NewsCategory } from '../models/news.model';
 import * as NewsActions from './news.actions';
 
 export interface NewsState {
   articles: NewsArticle[];
+  categories: NewsCategory[];
   selectedCategory: string;
   loading: boolean;
   error: any;
@@ -11,9 +12,10 @@ export interface NewsState {
 
 export const initialState: NewsState = {
   articles: [],
+  categories: [],
   selectedCategory: 'general',
   loading: false,
-  error: null
+  error: null,
 };
 
 export const newsReducer = createReducer(
@@ -21,21 +23,25 @@ export const newsReducer = createReducer(
   on(NewsActions.loadNews, (state) => ({
     ...state,
     loading: true,
-    error: null
+    error: null,
   })),
   on(NewsActions.loadNewsSuccess, (state, { articles }) => ({
     ...state,
     articles,
     loading: false,
-    error: null
+    error: null,
   })),
   on(NewsActions.loadNewsFailure, (state, { error }) => ({
     ...state,
     loading: false,
-    error
+    error,
   })),
   on(NewsActions.changeCategory, (state, { category }) => ({
     ...state,
-    selectedCategory: category
+    selectedCategory: category,
+  })),
+  on(NewsActions.loadCategoriesSuccess, (state, { categories }) => ({
+    ...state,
+    categories,
   }))
 );
