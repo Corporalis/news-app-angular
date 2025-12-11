@@ -14,27 +14,29 @@ import {
 
 @Injectable()
 export class NewsEffects {
-  private actions$ = inject(Actions);
-  private newsService = inject(NewsService);
-  private router = inject(Router);
+  private readonly actions$ = inject(Actions);
+  private readonly newsService = inject(NewsService);
+  private readonly router = inject(Router);
 
-  loadNews$ = createEffect(() =>
+  readonly loadNews$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadNews, changeCategory),
       switchMap((action) =>
         this.newsService.getTopHeadlines(action.category).pipe(
           map((response) => loadNewsSuccess({ articles: response.articles })),
-          catchError((error) => of(loadNewsFailure({ error: error.message })))
+          catchError((error: Error) => of(loadNewsFailure({ error: error.message })))
         )
       )
     )
   );
 
-  loadNewsFromRoute$ = createEffect(() =>
+  readonly loadNewsFromRoute$ = createEffect(() =>
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
       map((event: NavigationEnd) => {
-        const urlSegments = event.urlAfterRedirects.split('/').filter((segment: string) => segment);
+        const urlSegments = event.urlAfterRedirects
+          .split('/')
+          .filter((segment: string) => segment);
         const category = urlSegments[0] || 'general';
         return category === '' ? 'general' : category;
       }),
@@ -42,7 +44,7 @@ export class NewsEffects {
     )
   );
 
-  loadCategories$ = createEffect(() =>
+  readonly loadCategories$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ROOT_EFFECTS_INIT),
       map(() => {

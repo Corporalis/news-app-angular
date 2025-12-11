@@ -1,13 +1,19 @@
 import { createReducer, on } from '@ngrx/store';
 import { NewsArticle, NewsCategory } from '../models/news.model';
-import * as NewsActions from './news.actions';
+import {
+  changeCategory,
+  loadCategoriesSuccess,
+  loadNews,
+  loadNewsFailure,
+  loadNewsSuccess,
+} from './news.actions';
 
 export interface NewsState {
-  articles: NewsArticle[];
-  categories: NewsCategory[];
-  selectedCategory: string;
-  loading: boolean;
-  error: any;
+  readonly articles: NewsArticle[];
+  readonly categories: NewsCategory[];
+  readonly selectedCategory: string;
+  readonly loading: boolean;
+  readonly error: string | null;
 }
 
 export const initialState: NewsState = {
@@ -20,27 +26,27 @@ export const initialState: NewsState = {
 
 export const newsReducer = createReducer(
   initialState,
-  on(NewsActions.loadNews, (state) => ({
+  on(loadNews, (state) => ({
     ...state,
     loading: true,
     error: null,
   })),
-  on(NewsActions.loadNewsSuccess, (state, { articles }) => ({
+  on(loadNewsSuccess, (state, { articles }) => ({
     ...state,
     articles,
     loading: false,
     error: null,
   })),
-  on(NewsActions.loadNewsFailure, (state, { error }) => ({
+  on(loadNewsFailure, (state, { error }) => ({
     ...state,
     loading: false,
     error,
   })),
-  on(NewsActions.changeCategory, (state, { category }) => ({
+  on(changeCategory, (state, { category }) => ({
     ...state,
     selectedCategory: category,
   })),
-  on(NewsActions.loadCategoriesSuccess, (state, { categories }) => ({
+  on(loadCategoriesSuccess, (state, { categories }) => ({
     ...state,
     categories,
   }))

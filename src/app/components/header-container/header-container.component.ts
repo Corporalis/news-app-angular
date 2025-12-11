@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { NewsCategory } from '../../models/news.model';
@@ -10,12 +10,13 @@ import { HeaderComponent } from '../header/header.component';
   selector: 'app-header-container',
   standalone: true,
   imports: [CommonModule, HeaderComponent],
-  template: `<app-header [categories]="(categories$ | async) || []"></app-header>`,
+  template: `<app-header [categories]="categories$ | async" />`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderContainerComponent {
-  categories$: Observable<NewsCategory[]>;
+  readonly categories$: Observable<NewsCategory[]>;
 
-  constructor(private store: Store) {
+  constructor(private readonly store: Store) {
     this.categories$ = this.store.select(selectCategories);
   }
 }

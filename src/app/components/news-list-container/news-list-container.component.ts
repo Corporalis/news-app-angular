@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { NewsArticle } from '../../models/news.model';
@@ -21,16 +21,17 @@ import { NewsListComponent } from '../news-list/news-list.component';
       [loading]="loading$ | async"
       [error]="error$ | async"
       [selectedCategory]="selectedCategory$ | async"
-    ></app-news-list>
+    />
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsListContainerComponent {
-  articles$: Observable<NewsArticle[]>;
-  loading$: Observable<boolean>;
-  error$: Observable<any>;
-  selectedCategory$: Observable<string>;
+  readonly articles$: Observable<NewsArticle[]>;
+  readonly loading$: Observable<boolean>;
+  readonly error$: Observable<string | null>;
+  readonly selectedCategory$: Observable<string>;
 
-  constructor(private store: Store) {
+  constructor(private readonly store: Store) {
     this.articles$ = this.store.select(selectAllArticles);
     this.loading$ = this.store.select(selectLoading);
     this.error$ = this.store.select(selectError);
