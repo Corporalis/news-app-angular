@@ -34,9 +34,7 @@ export class NewsEffects {
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
       map((event: NavigationEnd) => {
-        const urlSegments = event.urlAfterRedirects
-          .split('/')
-          .filter((segment: string) => segment);
+        const urlSegments = event.urlAfterRedirects.split('/').filter((segment: string) => segment);
         const category = urlSegments[0] || 'general';
         return category === '' ? 'general' : category;
       }),
