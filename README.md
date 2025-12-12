@@ -21,11 +21,13 @@ A modern news application built with Angular 18, styled with Tailwind CSS to res
 ## Installation
 
 1. Navigate to the project directory:
+
 ```bash
-cd bbc-news-app
+cd newsdit-app
 ```
 
 2. Install dependencies (if not already installed):
+
 ```bash
 npm install
 ```
@@ -38,6 +40,7 @@ npm install
 ## Development
 
 Run the development server:
+
 ```bash
 npm start
 ```
@@ -47,6 +50,7 @@ Navigate to `http://localhost:4200/` in your browser.
 ## Build
 
 Build the project for production:
+
 ```bash
 npm run build
 ```
@@ -90,6 +94,7 @@ The app uses NGRX for predictable state management:
 ## Tailwind Configuration
 
 Custom BBC-inspired color palette defined in `tailwind.config.js`:
+
 - `bbc-bg`: #1e1e1e (background)
 - `bbc-card`: #2b2b2b (card background)
 - `bbc-border`: #3a3a3a (borders)
@@ -101,6 +106,7 @@ Custom BBC-inspired color palette defined in `tailwind.config.js`:
 ## API Information
 
 This app uses the NewsAPI.org v2 API:
+
 - Free tier: 100 requests per day
 - Endpoint: `https://newsapi.org/v2/top-headlines`
 - Categories: general, business, technology, science, sports, entertainment, health
