@@ -1,6 +1,6 @@
+import { provideRouter } from '@angular/router';
 import { Meta, StoryObj, applicationConfig } from '@storybook/angular';
 import { HeaderComponent } from './header.component';
-import { provideRouter } from '@angular/router';
 
 const meta: Meta<HeaderComponent> = {
   title: 'Components/Header',
