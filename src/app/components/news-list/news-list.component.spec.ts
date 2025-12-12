@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewsListComponent } from './news-list.component';
 import { NewsArticle } from '../../models/news.model';
+import { NewsListComponent } from './news-list.component';
 
 describe('NewsListComponent', () => {
   let component: NewsListComponent;
@@ -39,10 +39,11 @@ describe('NewsListComponent', () => {
     // Don't call detectChanges here - let each test control it
   });
 
-    it('should create', () => {
-      fixture.detectChanges();
-      expect(component).toBeDefined();
-    });  it('should display loading state', () => {
+  it('should create', () => {
+    fixture.detectChanges();
+    expect(component).toBeDefined();
+  });
+  it('should display loading state', () => {
     component.loading = true;
     fixture.detectChanges();
 

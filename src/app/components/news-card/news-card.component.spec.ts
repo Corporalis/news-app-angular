@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewsCardComponent } from './news-card.component';
 import { NewsArticle } from '../../models/news.model';
+import { NewsCardComponent } from './news-card.component';
 
 describe('NewsCardComponent', () => {
   let component: NewsCardComponent;
@@ -34,11 +34,10 @@ describe('NewsCardComponent', () => {
   });
 
   describe('Article Content Display', () => {
-
     it('should display article title', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -52,7 +51,7 @@ describe('NewsCardComponent', () => {
     it('should display article description', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -66,7 +65,7 @@ describe('NewsCardComponent', () => {
     it('should display article source name', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -80,7 +79,7 @@ describe('NewsCardComponent', () => {
     it('should display author name when provided', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -92,7 +91,7 @@ describe('NewsCardComponent', () => {
     it('should handle article without author gracefully', () => {
       // Arrange
       component.article = { ...mockArticle, author: null };
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -106,7 +105,7 @@ describe('NewsCardComponent', () => {
     it('should display article image when URL is provided', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -120,7 +119,7 @@ describe('NewsCardComponent', () => {
     it('should not render image element when URL is null', () => {
       // Arrange
       component.article = { ...mockArticle, urlToImage: null };
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -132,11 +131,10 @@ describe('NewsCardComponent', () => {
   });
 
   describe('Time Display', () => {
-
     it('should format time correctly for recent articles (hours)', () => {
       // Arrange
       const recentDate = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
-      
+
       // Act
       const timeAgo = component.getTimeAgo(recentDate);
 
@@ -147,7 +145,7 @@ describe('NewsCardComponent', () => {
     it('should format time correctly for old articles (days)', () => {
       // Arrange
       const oldDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString();
-      
+
       // Act
       const timeAgo = component.getTimeAgo(oldDate);
 
@@ -158,7 +156,7 @@ describe('NewsCardComponent', () => {
     it('should format time correctly for very recent articles (minutes)', () => {
       // Arrange
       const veryRecentDate = new Date(Date.now() - 30 * 60 * 1000).toISOString();
-      
+
       // Act
       const timeAgo = component.getTimeAgo(veryRecentDate);
 
@@ -171,7 +169,7 @@ describe('NewsCardComponent', () => {
     it('should link to the correct article URL', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
@@ -185,7 +183,7 @@ describe('NewsCardComponent', () => {
     it('should open article link in new tab for better UX', () => {
       // Arrange
       component.article = mockArticle;
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;

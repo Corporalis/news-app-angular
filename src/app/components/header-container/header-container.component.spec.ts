@@ -1,17 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-import { provideStore } from '@ngrx/store';
-import { HeaderContainerComponent } from './header-container.component';
-import { newsReducer } from '../../store/news.reducer';
 import { provideRouter } from '@angular/router';
+import { provideStore } from '@ngrx/store';
+import { newsReducer } from '../../store/news.reducer';
+import { HeaderContainerComponent } from './header-container.component';
 
 describe('HeaderContainerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderContainerComponent],
-      providers: [
-        provideStore({ news: newsReducer }),
-        provideRouter([]),
-      ],
+      providers: [provideStore({ news: newsReducer }), provideRouter([])],
     }).compileComponents();
   });
 
@@ -41,7 +38,7 @@ describe('HeaderContainerComponent', () => {
     it('should render the presentation header component', () => {
       // Arrange
       const fixture = TestBed.createComponent(HeaderContainerComponent);
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;

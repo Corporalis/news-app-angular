@@ -1,12 +1,12 @@
+import { NewsState } from './news.reducer';
 import {
-  selectNewsState,
   selectAllArticles,
   selectCategories,
-  selectSelectedCategory,
-  selectLoading,
   selectError,
+  selectLoading,
+  selectNewsState,
+  selectSelectedCategory,
 } from './news.selectors';
-import { NewsState } from './news.reducer';
 
 describe('News Selectors', () => {
   const mockState: NewsState = {
@@ -37,7 +37,7 @@ describe('News Selectors', () => {
     it('should select the entire news feature state', () => {
       // Act
       const result = selectNewsState(rootState);
-      
+
       // Assert
       expect(result).toEqual(mockState);
     });
@@ -47,7 +47,7 @@ describe('News Selectors', () => {
     it('should select all news articles from state', () => {
       // Act
       const result = selectAllArticles(rootState);
-      
+
       // Assert
       expect(result).toEqual(mockState.articles);
       expect(result.length).toBe(1);
@@ -57,10 +57,10 @@ describe('News Selectors', () => {
     it('should return empty array when no articles', () => {
       // Arrange
       const emptyState = { news: { ...mockState, articles: [] } };
-      
+
       // Act
       const result = selectAllArticles(emptyState);
-      
+
       // Assert
       expect(result).toEqual([]);
     });
@@ -70,7 +70,7 @@ describe('News Selectors', () => {
     it('should select all news categories', () => {
       // Act
       const result = selectCategories(rootState);
-      
+
       // Assert
       expect(result).toEqual(mockState.categories);
       expect(result.length).toBe(2);
@@ -79,10 +79,10 @@ describe('News Selectors', () => {
     it('should return empty array when no categories', () => {
       // Arrange
       const emptyState = { news: { ...mockState, categories: [] } };
-      
+
       // Act
       const result = selectCategories(emptyState);
-      
+
       // Assert
       expect(result).toEqual([]);
     });
@@ -92,7 +92,7 @@ describe('News Selectors', () => {
     it('should select the currently active category', () => {
       // Act
       const result = selectSelectedCategory(rootState);
-      
+
       // Assert
       expect(result).toBe('technology');
     });
@@ -102,7 +102,7 @@ describe('News Selectors', () => {
     it('should select loading state as false when not loading', () => {
       // Act
       const result = selectLoading(rootState);
-      
+
       // Assert
       expect(result).toBe(false);
     });
@@ -110,10 +110,10 @@ describe('News Selectors', () => {
     it('should select loading state as true when loading', () => {
       // Arrange
       const loadingState = { news: { ...mockState, loading: true } };
-      
+
       // Act
       const result = selectLoading(loadingState);
-      
+
       // Assert
       expect(result).toBe(true);
     });
@@ -123,7 +123,7 @@ describe('News Selectors', () => {
     it('should return null when no error exists', () => {
       // Act
       const result = selectError(rootState);
-      
+
       // Assert
       expect(result).toBe(null);
     });
@@ -131,10 +131,10 @@ describe('News Selectors', () => {
     it('should return error message when error exists', () => {
       // Arrange
       const errorState = { news: { ...mockState, error: 'Test error' } };
-      
+
       // Act
       const result = selectError(errorState);
-      
+
       // Assert
       expect(result).toBe('Test error');
     });

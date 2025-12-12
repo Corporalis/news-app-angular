@@ -1,11 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable, of, throwError } from 'rxjs';
-import { NewsEffects } from './news.effects';
-import { NewsService } from '../services/news.service';
-import { loadNews, loadNewsSuccess, loadNewsFailure, changeCategory, loadCategoriesSuccess } from './news.actions';
 import { Router } from '@angular/router';
 import { ROOT_EFFECTS_INIT } from '@ngrx/effects';
+import { provideMockActions } from '@ngrx/effects/testing';
+import { Observable, of, throwError } from 'rxjs';
+import { NewsService } from '../services/news.service';
+import {
+  changeCategory,
+  loadCategoriesSuccess,
+  loadNews,
+  loadNewsFailure,
+  loadNewsSuccess,
+} from './news.actions';
+import { NewsEffects } from './news.effects';
 
 describe('NewsEffects', () => {
   let actions$: Observable<any>;
@@ -14,7 +20,7 @@ describe('NewsEffects', () => {
 
   beforeEach(() => {
     const newsServiceMock = {
-      getTopHeadlines: vi.fn()
+      getTopHeadlines: vi.fn(),
     };
     const routerMock = {
       events: new Observable(),

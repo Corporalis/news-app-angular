@@ -1,11 +1,11 @@
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { newsReducer } from './store/news.reducer';
-import { NewsEffects } from './store/news.effects';
-import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { provideEffects } from '@ngrx/effects';
+import { provideStore } from '@ngrx/store';
+import { App } from './app';
+import { NewsEffects } from './store/news.effects';
+import { newsReducer } from './store/news.reducer';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -35,7 +35,7 @@ describe('App', () => {
     it('should render the header container', async () => {
       // Arrange
       const fixture = TestBed.createComponent(App);
-      
+
       // Act
       await fixture.whenStable();
       fixture.detectChanges();

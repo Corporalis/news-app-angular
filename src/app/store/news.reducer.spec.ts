@@ -1,13 +1,19 @@
-import { newsReducer, initialState } from './news.reducer';
-import { loadNews, loadNewsSuccess, loadNewsFailure, changeCategory, loadCategoriesSuccess } from './news.actions';
 import { NewsArticle, NewsCategory } from '../models/news.model';
+import {
+  changeCategory,
+  loadCategoriesSuccess,
+  loadNews,
+  loadNewsFailure,
+  loadNewsSuccess,
+} from './news.actions';
+import { initialState, newsReducer } from './news.reducer';
 
 describe('News Reducer', () => {
   describe('Initial State', () => {
     it('should return the default initial state for unknown action', () => {
       // Arrange
       const action = { type: 'Unknown' };
-      
+
       // Act
       const state = newsReducer(undefined, action);
 
@@ -23,7 +29,7 @@ describe('News Reducer', () => {
     it('should set loading to true and clear previous error', () => {
       // Arrange
       const action = loadNews({ category: 'technology' });
-      
+
       // Act
       const state = newsReducer(initialState, action);
 

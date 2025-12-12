@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideStore } from '@ngrx/store';
-import { NewsListContainerComponent } from './news-list-container.component';
 import { newsReducer } from '../../store/news.reducer';
+import { NewsListContainerComponent } from './news-list-container.component';
 
 describe('NewsListContainerComponent', () => {
   beforeEach(async () => {
@@ -64,7 +64,7 @@ describe('NewsListContainerComponent', () => {
     it('should render the presentation news-list component', () => {
       // Arrange
       const fixture = TestBed.createComponent(NewsListContainerComponent);
-      
+
       // Act
       fixture.detectChanges();
       const compiled = fixture.nativeElement as HTMLElement;
