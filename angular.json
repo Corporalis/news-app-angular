@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "bbc-news-app": {
+    "newsdit-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,9 +24,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css"],
             "prerender": false,
             "ssr": false
           },
@@ -58,16 +56,34 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "bbc-news-app:build:production"
+              "buildTarget": "newsdit-app:build:production"
             },
             "development": {
-              "buildTarget": "bbc-news-app:build:development"
+              "buildTarget": "newsdit-app:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "newsdit-app:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "newsdit-app:build",
+            "compodoc": false,
+            "outputDir": "storybook-static"
+          }
         }
       }
     }

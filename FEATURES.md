@@ -3,6 +3,7 @@
 ## ✨ Features Implemented
 
 ### 🎨 UI/UX
+
 - ✅ BBC-inspired dark theme
 - ✅ Responsive grid layout (mobile, tablet, desktop)
 - ✅ Sticky header navigation
@@ -16,6 +17,7 @@
 - ✅ Footer with credits
 
 ### 🏗️ Architecture
+
 - ✅ Angular 18 with standalone components
 - ✅ NGRX state management
   - Store configuration
@@ -29,6 +31,7 @@
 - ✅ HTTP client with fetch API
 
 ### 📰 News Features
+
 - ✅ Real-time news from NewsAPI.org
 - ✅ 7 news categories:
   - General
@@ -45,6 +48,7 @@
 - ✅ Fallback for missing images
 
 ### 🎯 State Management (NGRX)
+
 - ✅ Centralized state store
 - ✅ Action dispatching
 - ✅ Async data flow with Effects
@@ -55,6 +59,7 @@
 - ✅ Loading states
 
 ### 💅 Styling (Tailwind CSS v3)
+
 - ✅ Custom BBC color palette
 - ✅ Utility-first CSS
 - ✅ Responsive breakpoints
@@ -65,6 +70,7 @@
 - ✅ Border and shadow utilities
 
 ### 🛠️ Build & Dev
+
 - ✅ Angular CLI configuration
 - ✅ TypeScript strict mode
 - ✅ PostCSS with Tailwind
@@ -76,12 +82,14 @@
 ## 📦 Components
 
 ### HeaderComponent
+
 - Logo with BBC branding
 - Category navigation tabs
 - Active category highlighting
 - Responsive overflow scroll
 
 ### NewsListComponent
+
 - Featured article display
 - Grid layout for articles
 - Loading state
@@ -89,6 +97,7 @@
 - Empty state handling
 
 ### NewsCardComponent
+
 - Article image with aspect ratio
 - Title with line clamping
 - Description preview
@@ -98,6 +107,7 @@
 - External link handling
 
 ### FooterComponent
+
 - API attribution
 - Technology stack info
 - Copyright notice
@@ -105,6 +115,7 @@
 ## 🔧 Services
 
 ### NewsService
+
 - `getTopHeadlines(category)` - Fetch news by category
 - `searchNews(query)` - Search functionality (ready for future use)
 - Environment-based configuration
@@ -125,15 +136,15 @@
 
 ## 🎨 Custom Tailwind Colors
 
-| Color                | Hex Code | Usage              |
-|----------------------|----------|--------------------|
-| bbc-bg               | #1e1e1e  | Background         |
-| bbc-card             | #2b2b2b  | Card backgrounds   |
-| bbc-border           | #3a3a3a  | Borders            |
-| bbc-text             | #e4e4e4  | Primary text       |
-| bbc-text-secondary   | #9b9b9b  | Secondary text     |
-| bbc-red              | #bb1919  | BBC brand accent   |
-| bbc-hover            | #373737  | Hover states       |
+| Color              | Hex Code | Usage            |
+| ------------------ | -------- | ---------------- |
+| bbc-bg             | #1e1e1e  | Background       |
+| bbc-card           | #2b2b2b  | Card backgrounds |
+| bbc-border         | #3a3a3a  | Borders          |
+| bbc-text           | #e4e4e4  | Primary text     |
+| bbc-text-secondary | #9b9b9b  | Secondary text   |
+| bbc-red            | #bb1919  | BBC brand accent |
+| bbc-hover          | #373737  | Hover states     |
 
 ## 🚀 Commands
 
@@ -146,7 +157,7 @@ npm test           # Run tests (if configured)
 ## 📁 File Structure
 
 ```
-bbc-news-app/
+newsdit-app/
 ├── src/
 │   ├── app/
 │   │   ├── components/

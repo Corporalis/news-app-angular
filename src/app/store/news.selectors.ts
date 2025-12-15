@@ -8,17 +8,16 @@ export const selectAllArticles = createSelector(
   (state: NewsState) => state.articles
 );
 
+export const selectCategories = createSelector(
+  selectNewsState,
+  (state: NewsState) => state.categories
+);
+
 export const selectSelectedCategory = createSelector(
   selectNewsState,
   (state: NewsState) => state.selectedCategory
 );
 
-export const selectLoading = createSelector(
-  selectNewsState,
-  (state: NewsState) => state.loading
-);
+export const selectLoading = createSelector(selectNewsState, (state: NewsState) => state.loading);
 
-export const selectError = createSelector(
-  selectNewsState,
-  (state: NewsState) => state.error
-);
+export const selectError = createSelector(selectNewsState, (state: NewsState) => state.error);
